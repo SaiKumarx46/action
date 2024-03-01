@@ -1,0 +1,56 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<!-- <Button core:require="{ handler: 'customcreate/ext/fragment/CUSTOM'}" text="Edit" press="handler.onPress" /> -->
+        	
+    			
+		<Button  core:require="{ handler: 'customcreate/ext/fragment/CUSTOM'}" press="handler.onPress" text="Edit" textDirection="Inherit" ariaHasPopup="Dialog"/>
+		<!-- <Dialog id="helloDialog" resizable="true" draggable="true" headerText="Register Form">
+			<l:VerticalLayout>
+				<Label for="username" showColon="true" text="Username" />
+				<Input id="username" placeholder="Enter username" />
+				<Label for="password" showColon="true" text="Password" />
+				<Input i d="password" type="Password" placeholder="Enter password" valueState="Error" />
+				<Label for="email" showColon="true" text="Email" />
+				<Input id="email" placeholder="Enter e-mail" />
+			<</l:VerticalLayout>>
+			
+		</Dialog> -->
+	
+</core:FragmentDefinition>
+
+
+<!-- <core:FragmentDefinition xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m">
+    <Dialog id="_IDDialog"
+        title="Excel Upload"
+        class="sapUiResponsiveContentPadding"
+        beforeOpen=".onBeforeOpen"
+        afterClose=".onAfterClose">
+        <content>
+            <u:FileUploader id="uploader"
+                fileType="xlsx"
+                multiple="false"
+                uploadUrl="StudentsSrv/ExcelUpload/excel"
+                fileAllowed=".onFileAllowed"
+                fileEmpty=".onFileEmpty"
+                uploadComplete=".onUploadComplete"
+                typeMissmatch=".onTypeMismatch"
+                sendXHR="true"
+                useMultipart="false"
+                placeholder="Choose a xlsx file..."
+                httpRequestMethod="Put" />
+        </content>
+        <beginButton>
+            <Button id="ok"
+                text="OK"
+                press=".onOk"
+                type="Emphasized"
+                enabled="false" />
+        </beginButton>
+        <endButton>
+            <Button id="cancel"
+                text="Cancel"
+                press=".onCancel" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition> -->

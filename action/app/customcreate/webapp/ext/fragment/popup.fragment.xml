@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<!-- <Button core:require="{ handler: 'customcreate/ext/fragment/CUSTOM'}" text="Edit" press="handler.onPress" /> -->
+        	
+    			
+		<!-- <Button  core:require="{ handler: 'customcreate/ext/fragment/CUSTOM'}" press="handler.onPress" text="Edit" ariaHasPopup="Dialog"/> -->
+
+       
+		<Dialog id="he" resizable="true" draggable="true" title="Employee Details" class="sapUiContentPadding"  >
+		 <VBox>
+				<Label for="peolid" showColon="true" text="peolid"  />
+				<Input id="peolid"  editable="false"/>
+				<Label for="empname" showColon="true" text="empname" />
+				<Input id="empname" maxLength="10" size="10" 	class="sapUiSmallMarginBottom"	valueStateText="E-mail must be a valid email address."/> 
+                <Label for="date" showColon="true" text="date" />
+				<Input type="date" id="date" /> 
+           
+
+            
+            <Button id="SAVE"
+                text="SAVE"
+                press="handler.SAVE"
+                core:require="{ handler: 'customcreate/ext/controller/CREATE'}"
+                type="Emphasized" 
+                enabled="true"/>
+       
+            <Button id="CANCEL"
+                text="CANCEL"
+                 core:require="{ handler: 'customcreate/ext/controller/CREATE'}"
+                press="handler.CANCEL"
+                enabled="true" />
+       
+        	
+	
+          </VBox>
+          </Dialog>
+	
+</core:FragmentDefinition>

@@ -1,0 +1,174 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "customcreate",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.12.4",
+      "toolsId": "d1b2f707-2acc-4649-b86f-55d239470d7f"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/my/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.121.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "customcreate.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "style/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "peolList",
+          "target": "peolList"
+        },
+        {
+          "pattern": "peol({key}):?query:",
+          "name": "peolObjectPage",
+          "target": "peolObjectPage"
+        }
+      ],
+      "targets": {
+        "peolList": {
+          "type": "Component",
+          "id": "peolList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/peol",
+              "variantManagement": "Page",
+              "navigation": {
+                "peol": {
+                  "detail": {
+                    "route": "peolObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "actions": {
+                    "2": {
+                      "press": "customcreate.ext.controller.CREATE.CREATE_CLICK",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "CREATE"
+                    }
+                  },
+                  "columns": {
+                    "CUSTOM": {
+                      "header": "CUSTOM",
+                      "position": {
+                        "anchor": "DataField::date",
+                        "placement": "After"
+                      },
+                      "template": "customcreate.ext.fragment.CUSTOM"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "peolObjectPage": {
+          "type": "Component",
+          "id": "peolObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/peol",
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.FieldGroup#GeneratedGroup1": {
+                  "actions": {
+                    "5": {
+                      "press": "customcreate.ext.controller.ADD.ADD_CLICK",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "ADD"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}
